@@ -1,38 +1,35 @@
 /** @format */
-import { BsHouseDoorFill, BsLampFill, BsPeopleFill } from "react-icons/bs";
+import { BsBandaid, BsHouseDoor, BsLamp, BsPeople } from "react-icons/bs";
 const createUrl = (path: string) => `/admin${path}`;
 const ListMenu = [
   {
     name: "Home",
     href: createUrl("/"),
-    icon: <BsHouseDoorFill />,
+    icon: <BsHouseDoor />,
   },
 
   {
-    name: "Tentang",
-    href: createUrl("/tentang"),
-    icon: <BsHouseDoorFill />,
+    name: "Bidang",
+    href: createUrl("/bidang"),
+    icon: <BsBandaid />,
   },
 
   {
-    name: "Katalog",
-    href: "#",
-    slug: "katalog",
-    icon: <BsPeopleFill />,
-    subMenus: [
-      {
-        name: "Buku",
-        href: createUrl("/katalog?jenis=buku"),
-      },
-      {
-        name: "Jurnal",
-        href: createUrl("/katalog?jenis=jurnal"),
-      },
-      {
-        name: "Tugas Akhir",
-        href: createUrl("/katalog?jenis=tugas-akhir"),
-      },
-    ],
+    name: "Pegawai",
+    href: createUrl("/pegawai"),
+    icon: <BsPeople />,
+  },
+
+  {
+    name: "Pertanyaan",
+    href: createUrl("/pertanyaan"),
+    icon: <BsLamp />,
+  },
+
+  {
+    name: "Jawaban",
+    href: createUrl("/jawaban"),
+    icon: <BsHouseDoor />,
   },
 ];
 

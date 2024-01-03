@@ -1,13 +1,23 @@
 /** @format */
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ListMenu from "./ListMenu";
 import Link from "next/link";
+import { BsXLg } from "react-icons/bs";
+import { usePathname } from "next/navigation";
 
 type Props = {};
 
 const Sidebar = (props: Props) => {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  // ketika pathname berubah
+  useEffect(() => {
+    setOpen(false);
+
+    return () => {};
+  }, [pathname]);
 
   const handleBurger = () => {
     setOpen(!open);
@@ -36,26 +46,34 @@ const Sidebar = (props: Props) => {
       </button>
 
       <aside
-        className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0`}
+        className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 ${
+          open ? "translate-x-0" : ""
+        }`}
         aria-label="Sidebar"
       >
-        <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-          <ul className="space-y-2 font-medium">
-            {ListMenu &&
-              ListMenu.map((menu, index) => {
-                return (
-                  <li key={index}>
-                    <Link
-                      href={menu.href}
-                      className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                    >
-                      {menu.icon}
-                      <span className="ms-3">{menu.name}</span>
-                    </Link>
-                  </li>
-                );
-              })}
-          </ul>
+        <div className="h-full px-3 overflow-y-auto bg-gray-50 dark:bg-gray-800 flex flex-row-reverse justify-between sm:block">
+          <div className="text-black sm:hidden" onClick={handleBurger}>
+            <BsXLg />
+          </div>
+          <div>
+            <div className="h-24">Hallo</div>
+            <ul className="space-y-2 font-medium">
+              {ListMenu &&
+                ListMenu.map((menu, index) => {
+                  return (
+                    <li key={index}>
+                      <Link
+                        href={menu.href}
+                        className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                      >
+                        {menu.icon}
+                        <span className="ms-3">{menu.name}</span>
+                      </Link>
+                    </li>
+                  );
+                })}
+            </ul>
+          </div>
         </div>
       </aside>
     </>
