@@ -1,6 +1,7 @@
 /** @format */
 import { BsBandaid, BsHouseDoor, BsLamp, BsPeople } from "react-icons/bs";
 const createUrl = (path: string) => `/admin${path}`;
+const createUrlPegawai = (path: string) => `/pegawai${path}`;
 const ListMenu = [
   {
     name: "Home",
@@ -33,4 +34,14 @@ const ListMenu = [
   },
 ];
 
+const pegawaiMenu = [
+  {
+    name: "Home",
+    href: createUrl("/"),
+    icon: <BsHouseDoor />,
+  },
+];
+
 export default ListMenu;
+
+export { pegawaiMenu };

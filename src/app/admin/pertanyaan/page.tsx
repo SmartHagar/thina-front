@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import ShowData from "./ShowData";
 import Form from "./form/Form";
 import ModalDelete from "@/components/modal/ModalDelete";
-import useBidang from "@/stores/crud/Bidang";
+import usePertanyaan from "@/stores/crud/Pertanyaan";
 import { Toaster } from "react-hot-toast";
 import toastShow from "@/utils/toast-show";
 import InputTextSearch from "@/components/input/InputTextSerch";
@@ -17,9 +17,9 @@ type Delete = {
   isDelete: boolean;
 };
 
-const Bidang = () => {
+const Pertanyaan = () => {
   // store
-  const { removeData } = useBidang();
+  const { removeData } = usePertanyaan();
   // state
   const [showModal, setShowModal] = useState(false);
   const [showDelete, setShowDelete] = useState<boolean>(false);
@@ -63,13 +63,13 @@ const Bidang = () => {
           setDelete={setDelete}
         />
         <div className="mb-4 flex justify-between">
-          <p>Silahkan Mengolah data Bidang</p>
+          <p>Silahkan Mengolah data Pertanyaan</p>
           <div>
             <BtnDefault onClick={handleTambah}>Tambah Data</BtnDefault>
           </div>
         </div>
         <InputTextSearch
-          placeholder="Cari Bidang"
+          placeholder="Cari Pertanyaan"
           onChange={(e) => setSearch(e)}
         />
       </div>
@@ -79,4 +79,4 @@ const Bidang = () => {
   );
 };
 
-export default Bidang;
+export default Pertanyaan;

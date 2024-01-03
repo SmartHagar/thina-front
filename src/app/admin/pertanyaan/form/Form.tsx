@@ -6,7 +6,7 @@ import toastShow from "@/utils/toast-show";
 import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import BodyForm from "./BodyForm";
-import useBidang from "@/stores/crud/Bidang";
+import usePertanyaan from "@/stores/crud/Pertanyaan";
 import BtnDefault from "@/components/button/BtnDefault";
 
 type Props = {
@@ -22,7 +22,7 @@ type Inputs = {
 
 const Form = ({ showModal, setShowModal, dtEdit }: Props) => {
   // store
-  const { addData, updateData } = useBidang();
+  const { addData, updateData } = usePertanyaan();
   // hook form
   const {
     register,
@@ -71,7 +71,7 @@ const Form = ({ showModal, setShowModal, dtEdit }: Props) => {
 
   return (
     <ModalDefault
-      title="Form Bidang"
+      title="Form Pertanyaan"
       showModal={showModal}
       setShowModal={setShowModal}
     >

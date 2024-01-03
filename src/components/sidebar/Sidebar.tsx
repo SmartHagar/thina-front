@@ -1,19 +1,23 @@
 /** @format */
 "use client";
-import React, { useEffect, useState } from "react";
-import ListMenu from "./ListMenu";
+import React, { FC, useEffect, useState } from "react";
+import ListMenu, { pegawaiMenu } from "./ListMenu";
 import Link from "next/link";
 import { BsXLg } from "react-icons/bs";
 import { usePathname, useRouter } from "next/navigation";
 import BtnDefault from "../button/BtnDefault";
 import useLogout from "@/stores/auth/logout";
+import MenuTypes from "@/types/MenuTypes";
 
-type Props = {};
+type Props = {
+  type?: "admin" | "pegawai";
+};
 
-const Sidebar = (props: Props) => {
+const Sidebar: FC<Props> = ({ type = "admin" }) => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const route = useRouter();
+  const [menus, setMenus] = useState<MenuTypes[]>([]);
   // store
   const { setLogout } = useLogout();
 
@@ -23,7 +27,16 @@ const Sidebar = (props: Props) => {
 
     return () => {};
   }, [pathname]);
-
+  // ketika type berubah
+  useEffect(() => {
+    if (type === "admin") {
+      setMenus(ListMenu);
+    } else {
+      setMenus(pegawaiMenu);
+    }
+    return () => {};
+  }, [type]);
+  // ketika tombol burger di klik
   const handleBurger = () => {
     setOpen(!open);
   };
@@ -71,8 +84,8 @@ const Sidebar = (props: Props) => {
           <div className="relative h-full">
             <div className="h-24">Hallo</div>
             <ul className="space-y-2 font-medium">
-              {ListMenu &&
-                ListMenu.map((menu, index) => {
+              {menus &&
+                menus.map((menu, index) => {
                   return (
                     <li key={index}>
                       <Link

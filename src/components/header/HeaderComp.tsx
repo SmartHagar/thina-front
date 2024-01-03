@@ -11,8 +11,8 @@ const HeaderComp = (props: Props) => {
 
   useEffect(() => {
     console.log({ pathname });
-    if (pathname === "/admin") {
-      setWelcome("Selamat Datang Admin");
+    if (pathname === "/pegawai") {
+      setWelcome("Selamat Datang di Halaman Pegawai");
     } else {
       // split the pathname
       const path = pathname?.split("/");
