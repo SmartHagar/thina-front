@@ -4,13 +4,18 @@ import React, { useEffect, useState } from "react";
 import ListMenu from "./ListMenu";
 import Link from "next/link";
 import { BsXLg } from "react-icons/bs";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import BtnDefault from "../button/BtnDefault";
+import useLogout from "@/stores/auth/logout";
 
 type Props = {};
 
 const Sidebar = (props: Props) => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const route = useRouter();
+  // store
+  const { setLogout } = useLogout();
 
   // ketika pathname berubah
   useEffect(() => {
@@ -21,6 +26,14 @@ const Sidebar = (props: Props) => {
 
   const handleBurger = () => {
     setOpen(!open);
+  };
+
+  const handleLogout = async () => {
+    const res = await setLogout();
+    if (res?.status === "success") {
+      return route.push("/login");
+    }
+    console.log({ res });
   };
   return (
     <>
@@ -55,7 +68,7 @@ const Sidebar = (props: Props) => {
           <div className="text-black sm:hidden" onClick={handleBurger}>
             <BsXLg />
           </div>
-          <div>
+          <div className="relative h-full">
             <div className="h-24">Hallo</div>
             <ul className="space-y-2 font-medium">
               {ListMenu &&
@@ -73,6 +86,11 @@ const Sidebar = (props: Props) => {
                   );
                 })}
             </ul>
+            <div className="absolute bottom-4 flex justify-center left-0 right-0">
+              <BtnDefault addClass="bg-primary" onClick={handleLogout}>
+                Logout
+              </BtnDefault>
+            </div>
           </div>
         </div>
       </aside>
