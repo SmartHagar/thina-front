@@ -127,7 +127,6 @@ const SelectFromDb: FC<Props> = ({
             placeholder={placeholder}
             menuPlacement="auto"
             menuPosition="fixed"
-            menuPortalTarget={document && document.body}
             styles={styles}
             ref={ref}
             value={myOptions()?.find((x) => x.value === value) || null}

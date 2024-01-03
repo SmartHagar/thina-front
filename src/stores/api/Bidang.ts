@@ -3,7 +3,7 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 import { api } from "@/services/baseURL";
-
+// api bidang
 type Props = {
   page?: number;
   limit?: number;
@@ -11,34 +11,34 @@ type Props = {
 };
 
 type Store = {
-  dtProdi: any;
-  setProdi: ({ page, limit, search }: Props) => Promise<{
+  dtBidang: any;
+  setBidang: ({ page, limit, search }: Props) => Promise<{
     status: string;
     data?: {};
     error?: {};
   }>;
-  setProdiAll: ({ search }: Props) => Promise<{
+  setBidangAll: ({ search }: Props) => Promise<{
     status: string;
     data?: {};
     error?: {};
   }>;
 };
 
-const useProdiApi = create(
+const useBidangApi = create(
   devtools<Store>((set, get) => ({
-    dtProdi: [],
-    setProdi: async ({ page = 1, limit = 10, search }) => {
+    dtBidang: [],
+    setBidang: async ({ page = 1, limit = 10, search }) => {
       try {
         const response = await api({
           method: "get",
-          url: `/prodi`,
+          url: `/bidang`,
           params: {
             limit,
             page,
             search,
           },
         });
-        set((state) => ({ ...state, dtProdi: response.data }));
+        set((state) => ({ ...state, dtBidang: response.data }));
         return {
           status: "berhasil",
           data: response.data,
@@ -50,16 +50,16 @@ const useProdiApi = create(
         };
       }
     },
-    setProdiAll: async ({ search }) => {
+    setBidangAll: async ({ search }) => {
       try {
         const response = await api({
           method: "get",
-          url: `/prodi/all`,
+          url: `/bidang/all`,
           params: {
             search,
           },
         });
-        set((state) => ({ ...state, dtProdi: response.data }));
+        set((state) => ({ ...state, dtBidang: response.data }));
         return {
           status: "berhasil",
           data: response.data,
@@ -74,4 +74,4 @@ const useProdiApi = create(
   }))
 );
 
-export default useProdiApi;
+export default useBidangApi;
