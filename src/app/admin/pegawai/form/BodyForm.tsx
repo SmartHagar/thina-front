@@ -1,6 +1,7 @@
 /** @format */
 "use client";
 import InputTextDefault from "@/components/input/InputTextDefault";
+import { SelectDefault } from "@/components/select/SelectDefault";
 import SelectFromDb from "@/components/select/SelectFromDB";
 import useBidangApi from "@/stores/api/Bidang";
 import React, { FC, useEffect } from "react";
@@ -39,6 +40,15 @@ const BodyForm: FC<Props> = ({
   }, [showModal]);
   return (
     <>
+      <InputTextDefault
+        label="Nama"
+        name="nama"
+        register={register}
+        required
+        minLength={2}
+        errors={errors.nama}
+        addClass="col-span-4"
+      />
       {dtBidang?.data && (
         <SelectFromDb
           label="Bidang"
@@ -49,26 +59,21 @@ const BodyForm: FC<Props> = ({
           control={control}
           required
           errors={errors.bidang_id}
-          addClass="col-span-4"
+          addClass="col-span-4 lg:col-span-2"
         />
       )}
-      <InputTextDefault
-        label="Nama"
-        name="nama"
-        register={register}
-        required
-        minLength={2}
-        errors={errors.nama}
-        addClass="col-span-4"
-      />
-      <InputTextDefault
+      <SelectDefault
         label="Jabatan"
-        name="jabatan"
+        defaultOption="Pilih Jabatan"
         register={register}
-        required
-        minLength={2}
-        errors={errors.jabatan}
-        addClass="col-span-4"
+        errors={errors}
+        name="jabatan"
+        options={[
+          { value: "Staf", label: "Staf" },
+          { value: "Satkam", label: "Satkam" },
+          { value: "Pekarya", label: "Pekarya" },
+        ]}
+        addClass="col-span-4 lg:col-span-2"
       />
     </>
   );
