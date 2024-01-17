@@ -15,9 +15,17 @@ type Props = {
   dtEdit: any;
 };
 
+type Pilihan = {
+  id: number;
+  pilih: string;
+  rating: number;
+};
+
 type Inputs = {
   id: number | string;
-  nama: string;
+  tanya: string;
+  indikator: string;
+  pilihan: Pilihan[];
 };
 
 const Form = ({ showModal, setShowModal, dtEdit }: Props) => {
@@ -31,19 +39,34 @@ const Form = ({ showModal, setShowModal, dtEdit }: Props) => {
     control,
     formState: { errors },
     watch,
+    reset,
   } = useForm<Inputs>();
 
   // reset form
   const resetForm = () => {
+    reset();
     setValue("id", "");
-    setValue("nama", "");
+    setValue("tanya", "");
+    setValue("indikator", "");
   };
 
   // data edit
   useEffect(() => {
     if (dtEdit) {
       setValue("id", dtEdit.id);
-      setValue("nama", dtEdit.nama);
+      setValue("tanya", dtEdit.tanya);
+      setValue("indikator", dtEdit.indikator);
+      dtEdit.pilihan.map((item: any, index: number) => {
+        setValue(`pilihan.${index}.id` as `pilihan.${number}.id`, item.id);
+        setValue(
+          `pilihan[${index}].pilih` as `pilihan.${number}.pilih`,
+          item.pilih
+        );
+        setValue(
+          `pilihan[${index}].rating` as `pilihan.${number}.rating`,
+          item.rating
+        );
+      });
     } else {
       resetForm();
     }
@@ -52,6 +75,7 @@ const Form = ({ showModal, setShowModal, dtEdit }: Props) => {
   // simpan data
   const onSubmit: SubmitHandler<Inputs> = async (row) => {
     console.log({ row });
+    // return;
     // jika dtEdit tidak kosong maka update
     if (dtEdit) {
       const { data } = await updateData(dtEdit.id, row);

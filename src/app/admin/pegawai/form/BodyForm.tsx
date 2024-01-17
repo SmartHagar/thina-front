@@ -66,8 +66,9 @@ const BodyForm: FC<Props> = ({
         label="Jabatan"
         defaultOption="Pilih Jabatan"
         register={register}
-        errors={errors}
+        errors={errors.jabatan}
         name="jabatan"
+        required
         options={[
           { value: "Staf", label: "Staf" },
           { value: "Satkam", label: "Satkam" },
