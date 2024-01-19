@@ -15,10 +15,17 @@ type Props = {
   dtEdit: any;
 };
 
+type Pilihan = {
+  id: number;
+  pilih: string;
+  rating: number;
+};
+
 type Inputs = {
   id: number | string;
   tanya: string;
   indikator: string;
+  pilihan: Pilihan[];
 };
 
 const Form = ({ showModal, setShowModal, dtEdit }: Props) => {
@@ -32,10 +39,12 @@ const Form = ({ showModal, setShowModal, dtEdit }: Props) => {
     control,
     formState: { errors },
     watch,
+    reset,
   } = useForm<Inputs>();
 
   // reset form
   const resetForm = () => {
+    reset();
     setValue("id", "");
     setValue("tanya", "");
     setValue("indikator", "");
@@ -47,6 +56,17 @@ const Form = ({ showModal, setShowModal, dtEdit }: Props) => {
       setValue("id", dtEdit.id);
       setValue("tanya", dtEdit.tanya);
       setValue("indikator", dtEdit.indikator);
+      dtEdit.pilihan.map((item: any, index: number) => {
+        setValue(`pilihan.${index}.id` as `pilihan.${number}.id`, item.id);
+        setValue(
+          `pilihan[${index}].pilih` as `pilihan.${number}.pilih`,
+          item.pilih
+        );
+        setValue(
+          `pilihan[${index}].rating` as `pilihan.${number}.rating`,
+          item.rating
+        );
+      });
     } else {
       resetForm();
     }

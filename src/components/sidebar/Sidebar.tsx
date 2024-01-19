@@ -8,6 +8,7 @@ import { usePathname, useRouter } from "next/navigation";
 import BtnDefault from "../button/BtnDefault";
 import useLogout from "@/stores/auth/logout";
 import MenuTypes from "@/types/MenuTypes";
+import Cookies from "js-cookie";
 
 type Props = {
   type?: "admin" | "pegawai";
@@ -44,6 +45,10 @@ const Sidebar: FC<Props> = ({ type = "admin" }) => {
   const handleLogout = async () => {
     const res = await setLogout();
     if (res?.status === "success") {
+      // delete cookie
+      Cookies.remove("token");
+      Cookies.remove("role");
+      Cookies.remove("pegawai");
       return route.push("/login");
     }
     console.log({ res });

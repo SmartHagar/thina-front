@@ -60,7 +60,7 @@ const InputTextDefault: FC<Props> = ({
             maxLength,
             valueAsNumber,
           })}
-          value={value}
+          defaultValue={value}
         />
       </div>
       {/* jika type password */}

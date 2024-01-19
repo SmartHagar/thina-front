@@ -59,6 +59,13 @@ const Form = (props: Props) => {
       const { data } = res;
       Cookies.set("token", data.token);
       Cookies.set("role", data.role);
+      // cek jika data pagawai ada
+      if (data?.pegawai) {
+        // convert json
+        const pegawai = JSON.stringify(data.pegawai);
+        console.log({ pegawai });
+        Cookies.set("pegawai", pegawai);
+      }
       router.push(`/${data.role}`);
     }
     setTimeout(() => {

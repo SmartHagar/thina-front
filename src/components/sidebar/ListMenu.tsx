@@ -37,8 +37,13 @@ const ListMenu = [
 const pegawaiMenu = [
   {
     name: "Home",
-    href: createUrl("/"),
+    href: createUrlPegawai("/"),
     icon: <BsHouseDoor />,
+  },
+  {
+    name: "Jawaban",
+    href: createUrlPegawai("/jawaban"),
+    icon: <BsPeople />,
   },
 ];
 

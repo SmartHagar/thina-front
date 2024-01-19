@@ -25,6 +25,10 @@ const BodyForm: FC<Props> = ({
   setValue,
   showModal,
 }) => {
+  const startAscii = "A".charCodeAt(0);
+  const totalPilih = Array.from({ length: 4 }, (_, i) =>
+    String.fromCharCode(startAscii + i)
+  );
   return (
     <>
       <InputTextDefault
@@ -51,6 +55,32 @@ const BodyForm: FC<Props> = ({
         ]}
         addClass="col-span-4 lg:col-span-2"
       />
+      {/* pilihann jawaban */}
+      {totalPilih.map((alphabet, i) => {
+        // i too alphabet
+        return (
+          <div key={i} className="col-span-4 grid grid-cols-4 gap-4">
+            <InputTextDefault
+              label={`Pilih ${alphabet}`}
+              name={`pilihan[${i}].pilih`}
+              register={register}
+              required
+              minLength={2}
+              errors={errors?.pilihan && errors.pilihan[i]?.pilih}
+              addClass="col-span-4 lg:col-span-3"
+            />
+            <InputTextDefault
+              label={`Rating ${alphabet}`}
+              name={`pilihan[${i}].rating`}
+              register={register}
+              required
+              type="number"
+              errors={errors?.pilihan && errors.pilihan[i]?.rating}
+              addClass="col-span-4 lg:col-span-1"
+            />
+          </div>
+        );
+      })}
     </>
   );
 };
