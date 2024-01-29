@@ -23,17 +23,7 @@ const Login = (props: Props) => {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                   className="w-4 h-4 inline-block align-text-top"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                  />
-                </svg>
-                <span className="inline-block ml-1">
-                  Kembali Ke Halaman Utama
-                </span>
+                ></svg>
               </button>
             </div>
           </div>

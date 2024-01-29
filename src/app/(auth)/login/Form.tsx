@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Cookies from "js-cookie";
+import InputTextPassword from "@/components/input/InputTextPassword";
 
 type Props = {};
 
@@ -89,14 +90,14 @@ const Form = (props: Props) => {
           />
         </div>
         <div className="pb-2 pt-4">
-          <InputTextDefault
+          <InputTextPassword
             label="Password"
             register={register}
-            type="password"
             name="password"
             placeholder="Password"
             required
-            errors={errors.email}
+            type="password"
+            errors={errors.password}
           />
         </div>
         <div className="mt-5">

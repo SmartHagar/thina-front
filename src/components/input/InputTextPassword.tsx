@@ -70,10 +70,10 @@ const InputTextPassword: FC<Props> = ({
         />
         {type === "password" && (
           <div
-            className="absolute right-2 top-0 flex items-center h-full cursor-pointer text-secondary"
+            className="absolute right-2 top-0 flex items-center h-full cursor-pointer text-color-1"
             onClick={tooglePassword}
           >
-            {isTypePassword ? <BsEye size={20} /> : <BsEyeSlash size={20} />}
+            {isTypePassword ? <BsEyeSlash size={20} /> : <BsEye size={20} />}
           </div>
         )}
       </div>

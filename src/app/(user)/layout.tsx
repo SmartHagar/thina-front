@@ -1,14 +1,14 @@
 /** @format */
-"use client";
 import NavbarComp from "@/components/navbar/NavbarComp";
 import React from "react";
-import { motion, MotionConfig } from "framer-motion";
+import { redirect } from "next/navigation";
 
 type Props = {
   children: React.ReactNode;
 };
 
 const layout = (props: Props) => {
+  redirect("/login");
   return (
     <div className="bg-white min-h-screen">
       <NavbarComp />
