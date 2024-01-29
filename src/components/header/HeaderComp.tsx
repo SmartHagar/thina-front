@@ -2,6 +2,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 
 type Props = {};
 
@@ -12,7 +13,8 @@ const HeaderComp = (props: Props) => {
   useEffect(() => {
     console.log({ pathname });
     if (pathname === "/pegawai") {
-      setWelcome("Selamat Datang di Halaman Pegawai");
+      const dtPegawai = JSON.parse(Cookies.get("pegawai") || "");
+      setWelcome(`Selamat Datang ${dtPegawai?.nama}`);
     } else {
       // split the pathname
       const path = pathname?.split("/");

@@ -1,5 +1,11 @@
 /** @format */
-import { BsBandaid, BsHouseDoor, BsLamp, BsPeople } from "react-icons/bs";
+import {
+  BsBandaid,
+  BsCheck2Circle,
+  BsHouseDoor,
+  BsLamp,
+  BsPeople,
+} from "react-icons/bs";
 const createUrl = (path: string) => `/admin${path}`;
 const createUrlPegawai = (path: string) => `/pegawai${path}`;
 const ListMenu = [
@@ -30,7 +36,7 @@ const ListMenu = [
   {
     name: "Jawaban",
     href: createUrl("/jawaban"),
-    icon: <BsHouseDoor />,
+    icon: <BsCheck2Circle />,
   },
 ];
 
@@ -43,7 +49,7 @@ const pegawaiMenu = [
   {
     name: "Jawaban",
     href: createUrlPegawai("/jawaban"),
-    icon: <BsPeople />,
+    icon: <BsCheck2Circle />,
   },
 ];
 
