@@ -19,6 +19,7 @@ type Inputs = {
   id: number | string;
   tanya: string;
   indikator: string;
+  bobot: number | string;
 };
 
 const Form = ({ showModal, setShowModal, dtEdit }: Props) => {
@@ -39,6 +40,7 @@ const Form = ({ showModal, setShowModal, dtEdit }: Props) => {
     setValue("id", "");
     setValue("tanya", "");
     setValue("indikator", "");
+    setValue("bobot", "");
   };
 
   // data edit
@@ -47,6 +49,7 @@ const Form = ({ showModal, setShowModal, dtEdit }: Props) => {
       setValue("id", dtEdit.id);
       setValue("tanya", dtEdit.tanya);
       setValue("indikator", dtEdit.indikator);
+      setValue("bobot", dtEdit.bobot);
     } else {
       resetForm();
     }

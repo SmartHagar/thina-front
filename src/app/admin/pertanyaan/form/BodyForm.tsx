@@ -51,6 +51,15 @@ const BodyForm: FC<Props> = ({
         ]}
         addClass="col-span-4 lg:col-span-2"
       />
+      <InputTextDefault
+        label="Bobot"
+        name="bobot"
+        register={register}
+        required
+        type="number"
+        errors={errors.bobot}
+        addClass="col-span-2"
+      />
     </>
   );
 };

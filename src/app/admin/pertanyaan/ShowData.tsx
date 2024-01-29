@@ -47,8 +47,8 @@ const ShowData: FC<Props> = ({ setDelete, setEdit, search }) => {
   }, [search]);
 
   // table
-  const headTable = ["No", "Pertanyaan", "Indikator", "Aksi"];
-  const tableBodies = ["tanya", "indikator"];
+  const headTable = ["No", "Pertanyaan", "Indikator", "Bobot", "Aksi"];
+  const tableBodies = ["tanya", "indikator", "bobot"];
   // costume action
   return (
     <div className="flex-1 flex-col max-w-full h-full overflow-auto">

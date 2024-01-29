@@ -9,6 +9,7 @@ import BtnDefault from "../button/BtnDefault";
 import useLogout from "@/stores/auth/logout";
 import MenuTypes from "@/types/MenuTypes";
 import Cookies from "js-cookie";
+import Image from "next/image";
 
 type Props = {
   type?: "admin" | "pegawai";
@@ -54,7 +55,7 @@ const Sidebar: FC<Props> = ({ type = "admin" }) => {
     console.log({ res });
   };
   return (
-    <>
+    <div className="sidebar">
       <button
         onClick={handleBurger}
         type="button"
@@ -82,20 +83,31 @@ const Sidebar: FC<Props> = ({ type = "admin" }) => {
         }`}
         aria-label="Sidebar"
       >
-        <div className="h-full px-3 overflow-y-auto bg-gray-50 dark:bg-gray-800 flex flex-row-reverse justify-between sm:block">
-          <div className="text-black sm:hidden" onClick={handleBurger}>
+        <div className="sidebar z-50 h-full px-3 pt-4 overflow-y-auto bg-gray-50 dark:bg-gray-800 flex flex-row-reverse justify-between sm:block">
+          <div
+            className="text-black cursor-pointer sm:hidden"
+            onClick={handleBurger}
+          >
             <BsXLg />
           </div>
-          <div className="relative h-full">
-            <div className="h-24">Hallo</div>
-            <ul className="space-y-2 font-medium">
+          <div className="relative h-full sidebar w-full">
+            <div className="h-24 sidebar">
+              <Image
+                src="/images/uogp.png"
+                alt="logo"
+                width={70}
+                height={100}
+                className="mx-auto"
+              />
+            </div>
+            <ul className="space-y-2 font-medium w-full">
               {menus &&
                 menus.map((menu, index) => {
                   return (
                     <li key={index}>
                       <Link
                         href={menu.href}
-                        className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                        className="flex w-full items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                       >
                         {menu.icon}
                         <span className="ms-3">{menu.name}</span>
@@ -112,7 +124,7 @@ const Sidebar: FC<Props> = ({ type = "admin" }) => {
           </div>
         </div>
       </aside>
-    </>
+    </div>
   );
 };
 
