@@ -38,6 +38,12 @@ const ListMenu = [
     href: createUrl("/jawaban"),
     icon: <BsCheck2Circle />,
   },
+
+  {
+    name: "Perhitungan",
+    href: createUrl("/perhitungan"),
+    icon: <BsCheck2Circle />,
+  },
 ];
 
 const pegawaiMenu = [

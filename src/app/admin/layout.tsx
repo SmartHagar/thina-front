@@ -13,7 +13,7 @@ const layout = (props: Props) => {
   return (
     <div className="min-h-screen bg-white text-gray-800">
       <Auth />
-      <div className="sm:flex ml-64 hidden border-b border-menu-active h-12 items-center justify-center">
+      <div className="sm:flex hidden h-12 items-center justify-center shadow-lg">
         <HeaderComp />
       </div>
       <Sidebar />

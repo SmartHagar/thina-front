@@ -128,7 +128,7 @@ const Form = ({ tahun }: Props) => {
             control={control}
             watch={watch}
             setValue={setValue}
-            dtPertanyaan={dtPertanyaan}
+            dtPertanyaan={dtPertanyaan.data}
           />
         </div>
         <div>

@@ -45,7 +45,6 @@ const Auth: FC<Props> = (props: Props) => {
 
   useEffect(() => {
     loadData();
-    console.log("pertama render");
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

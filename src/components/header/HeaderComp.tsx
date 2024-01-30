@@ -11,14 +11,12 @@ const HeaderComp = (props: Props) => {
   const pathname = usePathname();
 
   useEffect(() => {
-    console.log({ pathname });
     if (pathname === "/pegawai") {
       const dtPegawai = JSON.parse(Cookies.get("pegawai") || "");
       setWelcome(`Selamat Datang ${dtPegawai?.nama}`);
     } else {
       // split the pathname
       const path = pathname?.split("/");
-      console.log({ path });
       setWelcome(`Halaman ${path[path.length - 1]}`);
     }
 
