@@ -24,4 +24,31 @@ const olahJawaban = (dtJawaban: any) => {
   return dtOlah;
 };
 
-export { olahJawaban };
+//  olah dtPertanyaan
+const olahPertanyaan = (dtPertanyaan: any) => {
+  // sort dtPertanyaan by id
+  dtPertanyaan && dtPertanyaan.sort((a: any, b: any) => a.id - b.id);
+  // group by indikator
+  const dtPertanyaanGroup =
+    dtPertanyaan &&
+    dtPertanyaan.reduce((acc: any, cur: any) => {
+      if (!acc[cur.indikator]) {
+        acc[cur.indikator] = [];
+      }
+      acc[cur.indikator].push(cur);
+      return acc;
+    }, {});
+  //    get key and value
+  const dtPertanyaanGroupArr =
+    dtPertanyaanGroup &&
+    Object.keys(dtPertanyaanGroup).map((key: any) => {
+      return {
+        indikator: key,
+        pertanyaan: dtPertanyaanGroup[key],
+      };
+    });
+
+  return dtPertanyaanGroupArr;
+};
+
+export { olahJawaban, olahPertanyaan };
