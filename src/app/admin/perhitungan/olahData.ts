@@ -38,13 +38,19 @@ const olahPertanyaan = (dtPertanyaan: any) => {
       acc[cur.indikator].push(cur);
       return acc;
     }, {});
+
   //    get key and value
   const dtPertanyaanGroupArr =
     dtPertanyaanGroup &&
     Object.keys(dtPertanyaanGroup).map((key: any) => {
+      // sum tingkat by indikator
+      const sumTingkat = dtPertanyaanGroup[key].reduce((acc: any, cur: any) => {
+        return acc + cur.tingkat;
+      }, 0);
       return {
         indikator: key,
         pertanyaan: dtPertanyaanGroup[key],
+        totalTingkat: sumTingkat,
       };
     });
 

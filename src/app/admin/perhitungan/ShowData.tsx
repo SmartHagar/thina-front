@@ -58,7 +58,7 @@ const ShowData: FC<Props> = ({ tahunWatch }) => {
   }, [dtJawaban, dtPertanyaan?.data]);
 
   return (
-    <div className="flex flex-col max-w-full h-full overflow-auto border grow">
+    <div className="flex flex-col max-w-full h-full overflow-auto grow">
       {isLoading ? (
         <LoadingSpiner />
       ) : (

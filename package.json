@@ -24,6 +24,7 @@
     "react-icons": "^4.10.1",
     "react-image-file-resizer": "^0.4.8",
     "react-select": "^5.7.4",
+    "react-vis": "^1.11.12",
     "zustand": "^4.3.9"
   },
   "devDependencies": {
@@ -32,6 +33,7 @@
     "@types/react": "^18",
     "@types/react-datepicker": "^4.11.2",
     "@types/react-dom": "^18",
+    "@types/react-vis": "^1.11.15",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.2",
