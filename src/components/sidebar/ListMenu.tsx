@@ -2,6 +2,7 @@
 import {
   BsBandaid,
   BsCheck2Circle,
+  BsGraphDown,
   BsHouseDoor,
   BsLamp,
   BsPeople,
@@ -42,7 +43,7 @@ const ListMenu = [
   {
     name: "Perhitungan",
     href: createUrl("/perhitungan"),
-    icon: <BsCheck2Circle />,
+    icon: <BsGraphDown />,
   },
 ];
 
