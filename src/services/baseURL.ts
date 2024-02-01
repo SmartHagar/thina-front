@@ -2,8 +2,8 @@
 
 import axios from "axios";
 
-// const BASE_URL = "https://back.faridapatai.my.id";
-const BASE_URL = "http://127.0.0.1:8000";
+const BASE_URL = "https://back.thina.my.id";
+// const BASE_URL = "http://127.0.0.1:8000";
 const url_auth = `${BASE_URL}/auth`;
 const url_api = `${BASE_URL}/api`;
 const url_crud = `${BASE_URL}/crud`;
