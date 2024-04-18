@@ -41,7 +41,7 @@ const ShowData: FC<Props> = ({ dtJawaban }) => {
     <div className="flex-1 flex-col max-w-full h-full overflow-auto">
       <div className="my-4 border-b">
         <h1 className="text-center text-lg">
-          Daftar pertanyaan dan jawaban anda.
+          Daftar pernyataan dan jawaban anda.
         </h1>
       </div>
       {sortJawaban &&

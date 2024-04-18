@@ -29,8 +29,8 @@ const ListMenu = [
   },
 
   {
-    name: "Pertanyaan",
-    href: createUrl("/pertanyaan"),
+    name: "Pernyataan",
+    href: createUrl("/pernyataan"),
     icon: <BsLamp />,
   },
 

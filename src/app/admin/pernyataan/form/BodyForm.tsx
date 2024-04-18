@@ -28,7 +28,7 @@ const BodyForm: FC<Props> = ({
   return (
     <>
       <InputTextDefault
-        label="Pertanyaan"
+        label="Pernyataan"
         name="tanya"
         register={register}
         required

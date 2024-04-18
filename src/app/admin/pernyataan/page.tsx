@@ -63,13 +63,13 @@ const Pertanyaan = () => {
           setDelete={setDelete}
         />
         <div className="mb-4 flex justify-between">
-          <p>Silahkan Mengolah data Pertanyaan</p>
+          <p>Silahkan Mengolah data Pernyataan</p>
           <div>
             <BtnDefault onClick={handleTambah}>Tambah Data</BtnDefault>
           </div>
         </div>
         <InputTextSearch
-          placeholder="Cari Pertanyaan"
+          placeholder="Cari Pernyataan"
           onChange={(e) => setSearch(e)}
         />
       </div>
