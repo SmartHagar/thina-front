@@ -1,6 +1,6 @@
 /** @format */
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 
 import ShowData from "./ShowData";
 import Form from "./form/Form";

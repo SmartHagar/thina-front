@@ -4,8 +4,7 @@ import LoadingSpiner from "@/components/loading/LoadingSpiner";
 import PaginationDefault from "@/components/pagination/PaginationDefault";
 import TablesDefault from "@/components/tables/TablesDefault";
 import usePertanyaan from "@/stores/crud/Pertanyaan";
-import React, { FC, useEffect, useState } from "react";
-import { BsBrush, BsChatRightFill } from "react-icons/bs";
+import { FC, useEffect, useState } from "react";
 
 type DeleteProps = {
   id?: number | string;
@@ -47,7 +46,7 @@ const ShowData: FC<Props> = ({ setDelete, setEdit, search }) => {
   }, [search]);
 
   // table
-  const headTable = ["No", "Pertanyaan", "Indikator", "Tingkat", "Aksi"];
+  const headTable = ["No", "Pernyataan", "Indikator", "Tingkat", "Aksi"];
   const tableBodies = ["tanya", "indikator", "tingkat"];
   // costume action
   return (

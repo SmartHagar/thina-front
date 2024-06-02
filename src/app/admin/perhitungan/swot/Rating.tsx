@@ -1,8 +1,7 @@
 /** @format */
 "use client";
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import hitungRating from "./hitungRating";
-import LoadingSpiner from "@/components/loading/LoadingSpiner";
 import Total from "./Total";
 
 type Props = {
@@ -101,7 +100,7 @@ const Rating: FC<Props> = ({ dataTable, dtPertanyaan }) => {
                         No
                       </th>
                       <th className={`px-6 py-2 whitespace-nowrap border`}>
-                        Rata-rata
+                        Rating
                       </th>
                       <th className={`px-6 py-2 whitespace-nowrap border`}>
                         Bobot
@@ -117,7 +116,7 @@ const Rating: FC<Props> = ({ dataTable, dtPertanyaan }) => {
                         <td className={`px-6 py-2 whitespace-nowrap border`}>
                           {index + 1}
                         </td>
-                        {/* Rata-rata */}
+                        {/* Rating */}
                         {dtRataRata &&
                           dtRataRata
                             .filter(

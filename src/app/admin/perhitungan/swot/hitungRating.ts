@@ -20,7 +20,7 @@ const hitungRating = (dataTable: any, dtPertanyaan: any) => {
       return acc + cur.rating;
     }, 0);
     const indikator = dtJawabanGroup[key][0].pertanyaan.indikator;
-    const average = total / dtJawabanGroup[key].length;
+    const average = parseFloat((total / dtJawabanGroup[key].length).toFixed(2));
     const tingkat = parseFloat(dtJawabanGroup[key][0].pertanyaan.tingkat);
     // sum tingkat
     const totalTingkat = dtPertanyaan.find(
