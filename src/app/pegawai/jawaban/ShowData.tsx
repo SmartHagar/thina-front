@@ -1,10 +1,6 @@
 /** @format */
 "use client";
-import LoadingSpiner from "@/components/loading/LoadingSpiner";
-import PaginationDefault from "@/components/pagination/PaginationDefault";
-import TablesDefault from "@/components/tables/TablesDefault";
-import useJawaban from "@/stores/crud/Jawaban";
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 type Props = {
   dtJawaban: any;

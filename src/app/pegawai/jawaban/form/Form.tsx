@@ -114,7 +114,7 @@ const Form = ({ tahun }: Props) => {
       {/* head */}
       <div className="my-4 border-b">
         <h1 className="text-center text-lg">
-          Silahkan Menjawab Pertanyaan dibawah ini.
+          Silahkan Menjawab Pernyataan dibawah ini.
         </h1>
       </div>
       {/* form */}
