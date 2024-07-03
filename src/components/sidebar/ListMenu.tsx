@@ -5,6 +5,7 @@ import {
   BsGraphDown,
   BsHouseDoor,
   BsLamp,
+  BsPaperclip,
   BsPeople,
 } from "react-icons/bs";
 const createUrl = (path: string) => `/admin${path}`;
@@ -44,6 +45,11 @@ const ListMenu = [
     name: "Perhitungan",
     href: createUrl("/perhitungan"),
     icon: <BsGraphDown />,
+  },
+  {
+    name: "Laporan",
+    href: createUrl("/lapAdmin"),
+    icon: <BsPaperclip />,
   },
 ];
 

@@ -112,10 +112,17 @@ const Form = ({ tahun }: Props) => {
         </div>
       </ModalDefault>
       {/* head */}
-      <div className="my-4 border-b">
-        <h1 className="text-center text-lg">
-          Silahkan Menjawab Pernyataan dibawah ini.
-        </h1>
+      <div className="my-4 border-b text-lg">
+        <p className="">
+          Silahkan menjawab pernyataan dibawah ini dengan memilih salah satu
+          jawaban dengan rating 1 sampai 4 dengan keterangan sebagai berikut.
+        </p>
+        <div className="flex flex-col mb-4">
+          <span className="">1 = Rendah</span>
+          <span className="">2 = Cukup Tinggi</span>
+          <span className="">3 = Tinggi</span>
+          <span className="">4 = Sangat Tinggi</span>
+        </div>
       </div>
       {/* form */}
       <form onSubmit={handleSubmit(onSubmit)}>
